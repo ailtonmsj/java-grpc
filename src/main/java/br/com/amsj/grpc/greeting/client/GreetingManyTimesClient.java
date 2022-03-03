@@ -1,13 +1,10 @@
 package br.com.amsj.grpc.greeting.client;
 
-import br.com.amsj.proto.greet.GreetRequest;
-import br.com.amsj.proto.greet.GreetResponse;
-import br.com.amsj.proto.greet.GreetServiceGrpc;
-import br.com.amsj.proto.greet.Greeting;
+import br.com.amsj.proto.greet.*;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
-public class GreetingClient {
+public class GreetingManyTimesClient {
 
     public static void main(String[] args) {
 
@@ -27,14 +24,15 @@ public class GreetingClient {
                                 .setLastName("da Silva")
                                         .build();
 
-        GreetRequest greetRequest = GreetRequest.newBuilder()
+        GreetManyTimesRequest greetManyTimesRequest = GreetManyTimesRequest.newBuilder()
                         .setGreeting(greeting)
                                 .build();
 
-        // send the message and get the response
-        GreetResponse greetResponse = greetClient.greet(greetRequest);
-        // print the response
-        System.out.println(greetResponse.getResult());
+        // send the message and get the response (stream)
+        greetClient.greetManyTimes(greetManyTimesRequest)
+                .forEachRemaining(greetManyTimesResponse -> {
+                    System.out.println(greetManyTimesResponse.getResult());
+                });
 
         // Shutdown the request client
         System.out.println("Shutting down channel");

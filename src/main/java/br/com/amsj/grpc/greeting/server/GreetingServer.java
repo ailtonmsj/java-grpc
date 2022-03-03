@@ -8,13 +8,16 @@ import java.io.IOException;
 public class GreetingServer {
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        System.out.println("Hello gRPC");
+
+        System.out.println("Sum Server initializing...");
 
         Server server = ServerBuilder.forPort(50051)
                 .addService(new GreetServiceImpl())
                 .build();
 
         server.start();
+
+        System.out.println("Sum Server started");
 
         Runtime.getRuntime().addShutdownHook(new Thread( () -> {
             System.out.println("Received Shutdown Request");
