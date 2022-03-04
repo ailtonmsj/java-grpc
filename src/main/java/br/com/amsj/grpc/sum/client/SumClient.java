@@ -1,4 +1,4 @@
-package br.com.amsj.grpc.greeting.sum.client;
+package br.com.amsj.grpc.sum.client;
 
 import br.com.amsj.proto.sum.SumRequest;
 import br.com.amsj.proto.sum.SumResponse;

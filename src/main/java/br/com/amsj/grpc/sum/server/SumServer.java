@@ -1,6 +1,5 @@
-package br.com.amsj.grpc.greeting.sum.server;
+package br.com.amsj.grpc.sum.server;
 
-import io.grpc.Channel;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 

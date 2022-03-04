@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package numberdecomposition;
+
+option java_package = "br.com.amsj.proto.numberdecomposition";
+option java_multiple_files = true;
+
+message NumberDecompositionRequest {
+  int32 number = 1;
+}
+
+message NumberDecompositionResponse {
+  int32 result = 1;
+}
+
+service NumberDecompositionService {
+  rpc NumberDecomposition (NumberDecompositionRequest) returns (stream NumberDecompositionResponse) {};
+}

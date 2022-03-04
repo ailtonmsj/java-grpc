@@ -13,13 +13,25 @@ Proto definitions
 ## /src/main/java
 Java implementation for gRPC based on gRPC generated code
 
-### Examples:
+## Run the server in each package, to after run the client
 
-###Client side for gRPC unary request:
-    br.com.amsj.grpc.greeting.client.GreetingClient 
+### Examples in Project:
 
-### Server side for gRPC unary response:
-    br.com.amsj.grpc.greeting.server.GreetingServer
+### gRPC unary call
+#### Client side:
+    br.com.amsj.grpc.greeting.client.SumClient 
+#### Server side:
+    br.com.amsj.grpc.greeting.server.SumServer
 
-### Service Implementation:
-    br.com.amsj.grpc.greeting.server.GreetServiceImpl
+### gRPC streaming server
+#### Client side:
+    br.com.amsj.grpc.greeting.client.NumberDecompositionClient 
+#### Server side:
+    br.com.amsj.grpc.greeting.server.NumberDecompositionServer
+
+### gRPC streaming client
+#### Client side:
+    br.com.amsj.grpc.greeting.client. 
+#### Server side:
+    br.com.amsj.grpc.greeting.server.
+
