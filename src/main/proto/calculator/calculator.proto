@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package calculator;
+
+option java_package = "br.com.amsj.proto.calculator";
+option java_multiple_files = true;
+
+message CalculatorAverageRequest {
+  int32 number = 1;
+}
+
+message CalculatorAverageResponse {
+  double average = 1;
+}
+
+service CalculatorService {
+  rpc CalculatorAverage (stream CalculatorAverageRequest) returns (CalculatorAverageResponse){};
+}
