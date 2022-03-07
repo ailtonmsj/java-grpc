@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package findmaximum;
+
+option java_package = "br.com.amsj.grpc.findmaximum";
+option java_multiple_files = true;
+
+message FindMaximumRequest {
+  int32 number = 1;
+}
+
+message FindMaximumResponse {
+  int32 greater = 1;
+}
+
+service FindMaximumService {
+  rpc FindMaximum (stream FindMaximumRequest) returns (stream FindMaximumResponse) {};
+}
