@@ -31,7 +31,14 @@ Java implementation for gRPC based on gRPC generated code
 
 ### gRPC streaming client
 #### Client side:
-    br.com.amsj.grpc.greeting.client. 
+    br.com.amsj.grpc.greeting.client.CalculatorClient
 #### Server side:
-    br.com.amsj.grpc.greeting.server.
+    br.com.amsj.grpc.greeting.server.CalculatorServer
+
+
+### gRPC bidirecional streaming ( client and server )
+#### Client side:
+    br.com.amsj.grpc.greeting.client.FindMaximumClient
+#### Server side:
+    br.com.amsj.grpc.greeting.server.FindMaximumServer
 

@@ -77,13 +77,13 @@ public class FindMaximumClient {
                             .setNumber(number)
                             .build());
                     try {
-                        Thread.sleep(200L);
+                        Thread.sleep(400L);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 });
-
         requestStreamObserver.onCompleted();
+
         try {
             countDownLatch.await(3, TimeUnit.SECONDS);
         } catch (InterruptedException e) {

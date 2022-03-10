@@ -14,17 +14,16 @@ public class FindMaximumServiceImpl extends FindMaximumServiceGrpc.FindMaximumSe
     @Override
     public StreamObserver<FindMaximumRequest> findMaximum(StreamObserver<FindMaximumResponse> responseObserver) {
 
-        List<Integer> numbers = new ArrayList<>();
-
         StreamObserver<FindMaximumRequest> streamObserverRequest = new StreamObserver<FindMaximumRequest>() {
+
+            int currentMaximum = 0;
 
             @Override
             public void onNext(FindMaximumRequest value) {
-                numbers.add(value.getNumber());
-                Integer greater = getGreater(numbers);
+                currentMaximum = getGreater(currentMaximum, value.getNumber());
 
                 FindMaximumResponse findMaximumResponse = FindMaximumResponse.newBuilder()
-                        .setGreater(greater)
+                        .setGreater(currentMaximum)
                         .build();
 
                 responseObserver.onNext(findMaximumResponse);
@@ -38,6 +37,10 @@ public class FindMaximumServiceImpl extends FindMaximumServiceGrpc.FindMaximumSe
 
             @Override
             public void onCompleted() {
+                FindMaximumResponse findMaximumResponse = FindMaximumResponse.newBuilder()
+                        .setGreater(currentMaximum)
+                        .build();
+
                 responseObserver.onCompleted();
             }
         };
@@ -47,17 +50,11 @@ public class FindMaximumServiceImpl extends FindMaximumServiceGrpc.FindMaximumSe
         return streamObserverRequest;
     }
 
-    private Integer getGreater(List<Integer> numbers) {
+    private Integer getGreater(Integer currentMaximum, Integer number) {
 
-        Integer greater = 0;
-        if(numbers != null && numbers.size() > 0) {
-            greater = Integer.MIN_VALUE;
-            for(Integer number : numbers) {
-                if (number > greater) {
-                    greater = number;
-                }
-            }
+        if(number != null && number > currentMaximum) {
+            return number;
         }
-        return greater;
+        return currentMaximum;
     }
 }
