@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package findmaximum;
 
-option java_package = "br.com.amsj.grpc.findmaximum";
+option java_package = "br.com.amsj.proto.findmaximum";
 option java_multiple_files = true;
 
 message FindMaximumRequest {

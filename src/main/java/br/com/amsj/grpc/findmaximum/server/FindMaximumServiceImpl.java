@@ -1,8 +1,8 @@
 package br.com.amsj.grpc.findmaximum.server;
 
-import br.com.amsj.grpc.findmaximum.FindMaximumRequest;
-import br.com.amsj.grpc.findmaximum.FindMaximumResponse;
-import br.com.amsj.grpc.findmaximum.FindMaximumServiceGrpc;
+import br.com.amsj.proto.findmaximum.FindMaximumRequest;
+import br.com.amsj.proto.findmaximum.FindMaximumResponse;
+import br.com.amsj.proto.findmaximum.FindMaximumServiceGrpc;
 import io.grpc.stub.StreamObserver;
 
 import java.util.ArrayList;

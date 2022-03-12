@@ -13,6 +13,18 @@ message CalculatorAverageResponse {
   double average = 1;
 }
 
+message SquareRootRequest {
+  int32 number = 1;
+}
+
+message SquareRootResponse {
+  double squareRoot = 1;
+}
+
 service CalculatorService {
   rpc CalculatorAverage (stream CalculatorAverageRequest) returns (CalculatorAverageResponse){};
+
+  // error handling
+  // returns an error if a negative number is sent
+  rpc SquareRoot (SquareRootRequest) returns (SquareRootResponse) {};
 }
