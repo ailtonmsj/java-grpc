@@ -19,26 +19,31 @@ Java implementation for gRPC based on gRPC generated code
 
 ### gRPC unary call
 #### Client side:
-    br.com.amsj.grpc.greeting.client.SumClient 
+    br.com.amsj.grpc.sum.client.SumClient 
 #### Server side:
-    br.com.amsj.grpc.greeting.server.SumServer
+    br.com.amsj.grpc.sum.server.SumServer
 
 ### gRPC streaming server
 #### Client side:
-    br.com.amsj.grpc.greeting.client.NumberDecompositionClient 
+    br.com.amsj.grpc.numberdecomposition.client.NumberDecompositionClient 
 #### Server side:
-    br.com.amsj.grpc.greeting.server.NumberDecompositionServer
+    br.com.amsj.grpc.numberdecomposition.server.NumberDecompositionServer
 
 ### gRPC streaming client
 #### Client side:
-    br.com.amsj.grpc.greeting.client.CalculatorClient
+    br.com.amsj.grpc.calculator.client.AverageServerStreamClient
 #### Server side:
-    br.com.amsj.grpc.greeting.server.CalculatorServer
+    br.com.amsj.grpc.calculator.server.CalculatorServer
 
 
 ### gRPC bidirecional streaming ( client and server )
 #### Client side:
-    br.com.amsj.grpc.greeting.client.FindMaximumClient
+    br.com.amsj.grpc.findmaximum.client.FindMaximumClient
 #### Server side:
-    br.com.amsj.grpc.greeting.server.FindMaximumServer
+    br.com.amsj.grpc.findmaximum.server.FindMaximumServer
 
+### gRPC unary call with error handling
+#### Client side:
+    br.com.amsj.grpc.calculator.client.SquareRootUnaryClient
+#### Server side:
+    br.com.amsj.grpc.calculator.server.CalculatorServer

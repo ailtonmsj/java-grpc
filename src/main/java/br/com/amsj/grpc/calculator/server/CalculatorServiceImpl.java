@@ -1,8 +1,7 @@
 package br.com.amsj.grpc.calculator.server;
 
-import br.com.amsj.proto.calculator.CalculatorAverageRequest;
-import br.com.amsj.proto.calculator.CalculatorAverageResponse;
-import br.com.amsj.proto.calculator.CalculatorServiceGrpc;
+import br.com.amsj.proto.calculator.*;
+import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 
 public class CalculatorServiceImpl extends CalculatorServiceGrpc.CalculatorServiceImplBase {
@@ -45,4 +44,26 @@ public class CalculatorServiceImpl extends CalculatorServiceGrpc.CalculatorServi
 
         return averageRequestStreamObserver;
     }
+
+    @Override
+    public void squareRoot(SquareRootRequest request, StreamObserver<SquareRootResponse> responseObserver) {
+
+        Integer number = request.getNumber();
+
+        if(number >= 0){
+            double squareRoot = Math.sqrt(number);
+            responseObserver.onNext(SquareRootResponse.newBuilder().
+                    setSquareRoot(squareRoot)
+                    .build());
+            responseObserver.onCompleted();
+        }else{
+            responseObserver.onError(
+                    Status.INVALID_ARGUMENT
+                            .withDescription("The number must be positive ( >= 0 )")
+                            .augmentDescription("Number sent: " + number)
+                            .asRuntimeException());
+        }
+
+    }
+
 }

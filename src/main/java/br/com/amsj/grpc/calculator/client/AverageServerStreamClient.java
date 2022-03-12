@@ -10,13 +10,12 @@ import io.grpc.stub.StreamObserver;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-public class CalculatorClient {
+public class AverageServerStreamClient {
 
     public static void main(String[] args) {
 
-        System.out.println("CalculatorClient initializing...");
-        new CalculatorClient().run();
-
+        System.out.println("AverageServerStreamClient initializing...");
+        new AverageServerStreamClient().run();
     }
 
     private void run() {
@@ -38,7 +37,6 @@ public class CalculatorClient {
         // Shutdown the request client
         System.out.println("Shutting down channel");
         channel.shutdown();
-
     }
 
     private void asyncAverage(ManagedChannel channel, CountDownLatch countDownLatch) {

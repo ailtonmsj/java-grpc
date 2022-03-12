@@ -1,9 +1,5 @@
 package br.com.amsj.grpc.findmaximum.client;
 
-import br.com.amsj.grpc.calculator.client.CalculatorClient;
-import br.com.amsj.proto.calculator.CalculatorAverageRequest;
-import br.com.amsj.proto.calculator.CalculatorAverageResponse;
-import br.com.amsj.proto.calculator.CalculatorServiceGrpc;
 import br.com.amsj.proto.findmaximum.FindMaximumRequest;
 import br.com.amsj.proto.findmaximum.FindMaximumResponse;
 import br.com.amsj.proto.findmaximum.FindMaximumServiceGrpc;

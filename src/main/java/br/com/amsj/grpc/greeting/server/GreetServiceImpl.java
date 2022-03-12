@@ -30,6 +30,7 @@ public class GreetServiceImpl extends GreetServiceGrpc.GreetServiceImplBase {
         responseObserver.onCompleted();
     }
 
+    // Stream response
     @Override
     public void greetManyTimes(GreetManyTimesRequest request, StreamObserver<GreetManyTimesResponse> responseObserver) {
 
