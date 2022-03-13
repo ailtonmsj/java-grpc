@@ -23,13 +23,15 @@ Java implementation for gRPC based on gRPC generated code
 #### Server side:
     br.com.amsj.grpc.sum.server.SumServer
 
-### gRPC streaming server
+
+### gRPC server streaming
 #### Client side:
     br.com.amsj.grpc.numberdecomposition.client.NumberDecompositionClient 
 #### Server side:
     br.com.amsj.grpc.numberdecomposition.server.NumberDecompositionServer
 
-### gRPC streaming client
+
+### gRPC client streaming
 #### Client side:
     br.com.amsj.grpc.calculator.client.AverageServerStreamClient
 #### Server side:
@@ -42,8 +44,16 @@ Java implementation for gRPC based on gRPC generated code
 #### Server side:
     br.com.amsj.grpc.findmaximum.server.FindMaximumServer
 
+
 ### gRPC unary call with error handling
 #### Client side:
     br.com.amsj.grpc.calculator.client.SquareRootUnaryClient
 #### Server side:
     br.com.amsj.grpc.calculator.server.CalculatorServer
+
+
+### gRPC Deadline example
+#### Client side:
+    br.com.amsj.grpc.sum.client.SumLongProcessClient
+#### Server side:
+    br.com.amsj.grpc.sum.server.SumServer

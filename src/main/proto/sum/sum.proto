@@ -14,6 +14,16 @@ message SumResponse {
   int32 result = 1;
 }
 
+message SumLongProcessRequest {
+  int32 first_number = 1;
+  int32 second_number = 2;
+}
+
+message SumLongProcessResponse {
+  int32 result = 1;
+}
+
 service SumService {
   rpc Sum (SumRequest) returns (SumResponse) {};
+  rpc SumLongProcess (SumLongProcessRequest) returns (SumLongProcessResponse) {}
 }
