@@ -1,30 +1,34 @@
 package br.com.amsj.grpc.greeting.client;
 
 import br.com.amsj.proto.greet.*;
-import io.grpc.ManagedChannel;
-import io.grpc.ManagedChannelBuilder;
+import io.grpc.*;
+
+import java.io.File;
+import java.io.IOException;
 
 public class GreetingManyTimesClient {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         System.out.println("Hello I'm a gRPC client");
         new GreetingManyTimesClient().run();
 
     }
 
-    private void run(){
+    private void run() throws IOException {
+
+        // create the channel credentials ( pointing to the ca.crt )
+        ChannelCredentials channelCredentials = TlsChannelCredentials.newBuilder().trustManager(new File("ssl/ca.crt")).build();
+
         // config the channel
-        ManagedChannel channel = ManagedChannelBuilder.forAddress( "localhost", 50051)
-                .usePlaintext()
+        ManagedChannel secureChannel = Grpc.newChannelBuilderForAddress("localhost", 50051, channelCredentials)
                 .build();
 
-        clientStreaming(channel);
+        clientStreaming(secureChannel);
 
         // Shutdown the request client
         System.out.println("Shutting down channel");
-        channel.shutdown();
-
+        secureChannel.shutdown();
     }
 
     private void clientStreaming(ManagedChannel channel) {

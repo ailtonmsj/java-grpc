@@ -2,6 +2,7 @@ package br.com.amsj.grpc.sum.server;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
+import io.grpc.protobuf.services.ProtoReflectionService;
 
 import java.io.IOException;
 
@@ -13,6 +14,7 @@ public class SumServer {
 
         Server server = ServerBuilder.forPort(50061)
                 .addService(new SumServiceImpl())
+                .addService(ProtoReflectionService.newInstance()) // for server reflection - Client Discovery
                 .build();
 
         server.start();

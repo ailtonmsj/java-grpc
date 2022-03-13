@@ -57,3 +57,39 @@ Java implementation for gRPC based on gRPC generated code
     br.com.amsj.grpc.sum.client.SumLongProcessClient
 #### Server side:
     br.com.amsj.grpc.sum.server.SumServer
+
+### gRPC SSL example ( Using Custom CA )
+#### Reference: https://grpc.io/docs/guides/auth/#with-server-authentication-ssltls-5
+#### Client side:
+    br.com.amsj.grpc.greeting.client.GreetingManyTimesClient
+    br.com.amsj.grpc.greeting.client.GreetingClient
+#### Server side:
+    br.com.amsj.grpc.greeting.server.GreetingServer
+
+### gRPC Reflections 
+#### Reference: https://github.com/grpc/grpc-java/blob/master/documentation/server-reflection-tutorial.md
+
+#### configuration
+    build.gradle
+
+#### Server side:
+    br.com.amsj.grpc.greeting.server.GreetingServer (TLS)
+    br.com.amsj.grpc.sum.server.SumServer (no TLS)
+
+# Test With evans (Install evans is needed)
+
+#### 1. Install evans
+#### https://github.com/ktr0731/evans#installation
+#### 2. Start the server
+#### 3.1 Run (No TLS):
+    evans --host <LOCALHOST> -p <PORT> -r
+    evans --host localhost -p 50061 -r
+#### 3.2 Run (TLS):
+    not supported by evans at the moment
+#### 4. Discovery the services
+    show services
+#### 5. Call some service
+    call <SERVICE-NAME>
+    call Sum
+
+
